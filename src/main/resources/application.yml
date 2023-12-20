@@ -1,0 +1,10 @@
+server:
+  port: 6565
+
+chatgpt:
+  url: https://api.openai.com/v1/completions
+  api-key: "open-api-key"
+  model: text-davinci-003
+  max-tokens: 300
+  temperature: 1.0
+  top-p: 1.0
