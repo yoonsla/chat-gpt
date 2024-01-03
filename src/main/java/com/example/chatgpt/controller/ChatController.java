@@ -1,8 +1,8 @@
 package com.example.chatgpt.controller;
 
-import com.example.chatgpt.dto.ChatGptRequestDto;
 import com.example.chatgpt.dto.ChatGptResponseDto;
 import com.example.chatgpt.dto.QuestionRequestDto;
+import com.example.chatgpt.response.Response;
 import com.example.chatgpt.service.ChatService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,13 +19,13 @@ public class ChatController {
 
     // sdk
     @PostMapping("")
-    public String getChat(@RequestBody QuestionRequestDto requestDto) {
-        return chatService.getChat(requestDto);
+    public Response<String> getChat(@RequestBody QuestionRequestDto requestDto) {
+        return Response.from(chatService.getChat(requestDto));
     }
 
     // rest api
     @PostMapping("/question")
-    public ChatGptResponseDto sendQuestion(@RequestBody QuestionRequestDto requestDto) {
-        return chatService.askQuestion(requestDto);
+    public Response<ChatGptResponseDto> sendQuestion(@RequestBody QuestionRequestDto requestDto) {
+        return Response.from(chatService.askQuestion(requestDto));
     }
 }

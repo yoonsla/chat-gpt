@@ -1,6 +1,10 @@
 server:
   port: 6565
 
+spring:
+  lifecycle:
+    timeout-per-shutdown-phase: 1m
+
 chatgpt:
   url: https://api.openai.com/v1/completions
   api-key: "open-api-key"
